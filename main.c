@@ -5,16 +5,20 @@
 int main(void)
 {
   int i;
-  char word[50];
-  FILE *fp;
+  //char c;
+  char c[100];
+  FILE *fp = NULL;
   
-  fp = fopen("sample.txt", "w");
+  fp = fopen("sample.txt", "r");
   
-  for(i=0; i<3; i++){
-    printf("Input a word: ");
-    scanf("%s", &word);
-    fprintf(fp, "%s\n", word);
-  }
+  if (fp==NULL)
+  printf("Can't Open");
+  
+  //한 글자 읽는 것이 파일의 마지막이 아니면
+  //c=fgetc(fp)!=EOF
+  while(fgets(c, sizeof(c), fp)!=NULL){
+     printf("%s",c);
+  } 
 
   fclose(fp);
   
