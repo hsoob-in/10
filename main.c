@@ -2,14 +2,22 @@
 #include <string.h> 
 #include <stdlib.h>
 
-void main(void)
+int main(void)
 {
-  char str[30] = "happy C programming";
+  int i;
+  char word[50];
+  FILE *fp;
   
+  fp = fopen("sample.txt", "w");
   
-  printf("string \"%s\" length: %i\n", str, strlen(str)); //전체 문자열 출력 
-  
+  for(i=0; i<3; i++){
+    printf("Input a word: ");
+    scanf("%s", &word);
+    fprintf(fp, "%s\n", word);
+  }
+
+  fclose(fp);
   
   system("PAUSE");	
-  //return 0;
+  return 0;
 }
